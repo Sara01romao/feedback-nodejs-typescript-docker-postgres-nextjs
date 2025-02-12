@@ -1,0 +1,33 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id         String   @id @default(uuid())
+  name       String   @db.VarChar(100)
+  code       String   @unique @db.VarChar(80)
+  password   String   @db.VarChar(80) 
+  createdAt  DateTime @default(now()) @map("created_at")
+  feedbacks  Feedback[]
+}
+
+model Feedback {
+  id          String   @id @default(uuid())
+  companyId   String
+  type        FeedbackType
+  description String   @db.VarChar(200)
+  createdAt   DateTime @default(now()) @map("created_at")
+  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+}
+
+enum FeedbackType {
+  sugestao
+  critica
+  comentario
+}
