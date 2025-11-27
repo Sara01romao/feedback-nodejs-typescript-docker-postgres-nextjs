@@ -4,6 +4,7 @@ import  jwt  from "jsonwebtoken";
 interface JwtPayload {
   sub: string;
   id: string;
+  code:string;
   role?: string;
   iat?: number;
   exp?: number;
