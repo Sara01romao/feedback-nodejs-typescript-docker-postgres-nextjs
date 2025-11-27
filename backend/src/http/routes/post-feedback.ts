@@ -30,7 +30,7 @@ export async function postFeedback(app: FastifyInstance) {
       }
     });
 
-    return reply.status(201).send({ message: feedback.id });
+    return reply.status(201).send({ message: "ok"});
   })
 
 }
