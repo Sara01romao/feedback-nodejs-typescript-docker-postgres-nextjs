@@ -27,7 +27,7 @@ export async function login(app: FastifyInstance) {
       return reply.status(404).send({ ok: false, error: 'Password  wrong' });
     }
 
-    const payload = { id: company.id };
+    const payload = { id: company.id, code: code };
     const token = jwt.sign(payload, process.env.JWT_SECRET || 'supersecret', { expiresIn: '1h' });
     
     return reply.send({ token })
