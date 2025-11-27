@@ -1,4 +1,3 @@
-
 import { FastifyInstance } from "fastify";
 import { z } from "zod";
 import { prisma } from "../lib/prisma.js";
@@ -25,7 +24,7 @@ export async function createCompany(app: FastifyInstance) {
       }
     })
 
-    return reply.status(201).send({ id: company.id })
+    return reply.status(201).send({ codeCompany: company.code })
 
   });
 }
