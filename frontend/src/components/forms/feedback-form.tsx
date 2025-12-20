@@ -36,7 +36,7 @@ export function FeedbackForm() {
   return (
     <>
       <form action={action} className="max-w-[500px] w-full border border-[#D9D9D9] rounded-lg py-8 px-8 mx-auto flex flex-col gap-4  ">
-        <h2 className="font-semibold text-2xl text-gray-900">Deixe seu Feedback</h2>
+        <h2 className="font-semibold text-2xl text-gray-900 text-center mb-4">Deixe seu Feedback</h2>
         <Input name="companyCode" type="text" title="Code da Empresa" change={setCompanyCode} />
         <Select options={
           [
