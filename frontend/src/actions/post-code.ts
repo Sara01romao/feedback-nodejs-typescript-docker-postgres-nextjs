@@ -8,7 +8,7 @@ type FeedbackState = {
 
 export async function postCode(prevState: FeedbackState, formData: FormData): Promise<FeedbackState> {
 
-  const feedbackForm = {
+  const codeForm = {
     name: formData.get("name")?.toString() ?? "",
     password: formData.get("password")?.toString() ?? "",
   };
@@ -19,7 +19,7 @@ export async function postCode(prevState: FeedbackState, formData: FormData): Pr
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(feedbackForm),
+      body: JSON.stringify(codeForm),
     });
 
     if (!response.ok) {
