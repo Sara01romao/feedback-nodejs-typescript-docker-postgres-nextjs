@@ -1,18 +1,28 @@
+import { ptBR } from "date-fns/locale";
 import { FeedBack } from "../app/(auth)/dashboard/page";
+import { format } from "date-fns";
 
-export function Card({id, type, description, createdAt}:FeedBack) {
+export function Card({ id, type, description, createdAt }: FeedBack) {
+  function formatDate(date: string) {
+    const dateFormated = format(new Date(date), "dd MMM yyyy", {
+      locale: ptBR,
+    });
+
+    return dateFormated
+  }
+
   return (
     <div className="w-full" key={id}>
       <div className="rounded-xl border-2 border-gray-100 bg-white">
         <div className="flex items-start gap-4 p-4 ">
           <div>
             <h3 className="font-medium uppercase text-[#643EE4]">
-               {type == "critica"?"Crítica": type === "sugestao" ? "Sugestão":"Comentário" }
+              {type == "critica" ? "Crítica" : type === "sugestao" ? "Sugestão" : "Comentário"}
             </h3>
 
             <div className="mt-1 mb-2 sm:flex sm:items-center sm:gap-2">
               <div className="flex items-center gap-1 text-gray-500">
-                <p className="text-xs">06 de Fev 2025</p>
+                <p className="text-xs">{formatDate(createdAt)}</p>
               </div>
             </div>
 
