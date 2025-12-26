@@ -6,7 +6,6 @@ import { useModal } from "../modal";
 import { SubmitButton } from "../btn-submit";
 import { login } from "@/src/actions/login";
 
-
 export function LoginForm() {
   const { openModal } = useModal();
   const [companyCode, setCompanyCode] = useState<string>("");
@@ -16,11 +15,10 @@ export function LoginForm() {
     error: ''
   });
 
- 
-  // useEffect(() => {
-  //   if (!state.ok) return;
+  useEffect(() => {
+    if (!state.ok) return;
 
-  // }, [state])
+  }, [state])
 
   return (
     <>
@@ -33,7 +31,7 @@ export function LoginForm() {
           <p className="text-red-500 mt-2">{state.error}</p>
         )}
 
-        <SubmitButton />
+        <SubmitButton text="Entrar" />
       </form>
     </>
   )
