@@ -80,7 +80,7 @@ export function CodeForm() {
 
   return (
     <>
-      <form action={action} className="max-w-[500px] w-full border border-[#D9D9D9] rounded-lg py-8 px-8 mx-auto flex flex-col gap-4  ">
+      <form action={action} className="max-w-[500px] w-full border border-[#D9D9D9] rounded-lg py-8 px-8 mx-auto flex flex-col gap-4 ">
         <h2 className="font-semibold text-2xl text-gray-900 text-center mb-4">Gerar Código</h2>
         <Input name="name" type="text" title="Nome da Empresa" change={setCompanyName} />
         <Input name="password" type="password" title="Senha" change={setPassword} />
@@ -89,7 +89,7 @@ export function CodeForm() {
           <p className="text-red-500 mt-2">{state.error}</p>
         )}
 
-        <SubmitButton />
+        <SubmitButton text="Gerar" />
       </form>
     </>
   )

@@ -1,6 +1,6 @@
 import { ptBR } from "date-fns/locale";
-import { FeedBack } from "../app/(auth)/dashboard/page";
 import { format } from "date-fns";
+import { FeedBack } from "../dashboard/page";
 
 export function Card({ id, type, description, createdAt }: FeedBack) {
   function formatDate(date: string) {

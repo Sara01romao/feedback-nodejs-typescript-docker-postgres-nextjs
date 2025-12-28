@@ -1,10 +1,10 @@
 'use client'
 import { useActionState, useEffect, useState } from "react";
-import { Input } from "../input";
-import Select from "../select";
-import { SubmitButton } from "../btn-submit";
 import { getFeedbacks } from "@/src/actions/get-feedbacks";
 import { FeedBack } from "@/src/app/(auth)/dashboard/page";
+import Select from "@/src/components/select";
+import { Input } from "@/src/components/input";
+import { SubmitButton } from "@/src/components/btn-submit";
 
 type FilterProps = {
   listFilter: (filteredList: FeedBack[]) => void;
