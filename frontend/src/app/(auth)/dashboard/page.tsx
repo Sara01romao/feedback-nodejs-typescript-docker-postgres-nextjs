@@ -1,7 +1,6 @@
-import { Card } from "@/src/components/card-feedback";
-import { Filter } from "@/src/components/forms/filter-form";
-import { ListFeedbacks } from "@/src/components/list-feedbacks";
+import { ListFeedbacks } from "@/src/app/(auth)/components/list-feedbacks";
 import { validateToken } from "@/src/function/validate-token";
+import { Header } from "../components/header";
 
 export type FeedBack = {
   id: string;
@@ -21,14 +20,20 @@ export default async function Dashboard() {
 
   return (
     <div className="flex min-h-screen items-center justify-center font-sans ">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center  p-4 sm:items-start">
-       <div>
-        
-       </div>
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center p-4 sm:items-start">
+        <Header code={data.codeCompany} />
 
-        <section className="flex items-start w-full gap-4">
+        <h2 className="text-center text-2xl font-semibold w-full mb-4">Feedbacks</h2>
+        
+        {/* <div className=" bg-blue-400">
+           jhfjksdfh
+       
+        </div> */}
+       
+        <section className="flex flex-col items-center md:items-start w-full gap-4 md:flex-row relative">
           <ListFeedbacks feedbacks={data.feedbacks} />
         </section>
+
       </main>
     </div>
   )
