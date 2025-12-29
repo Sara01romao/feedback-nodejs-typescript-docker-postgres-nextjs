@@ -10,11 +10,6 @@ type ListFeedbacksProps = {
 export function ListFeedbacks({ feedbacks }: ListFeedbacksProps) {
   const [filter, setFilter] = useState<FeedBack[]>(feedbacks);
 
-  useEffect(() => {
-    console.log("filter", filter)
-
-  }, [filter])
-
   return (
     <>
       <div className="bg-white p-4 rounded-lg border border-gray-300  md:max-w-[200px] w-[100%] sticky top-0 sm:top-2">
@@ -23,7 +18,11 @@ export function ListFeedbacks({ feedbacks }: ListFeedbacksProps) {
       </div>
 
       <div className="md:max-w-8/12 w-full md:mr-0 md:ml-auto flex flex-col gap-4 md:mt-0">
-        {
+
+        {filter.length === 0 ?
+
+          <div className="bg-neutral-100 rounded-md"><h4 className="text-lg text-center p-4 ">Não encontrado</h4></div>
+          :
           filter.map((feedback) => (<Card key={feedback.id} companyId="dxsada" id={feedback.id} type={feedback.type} description={feedback.description} createdAt={feedback.createdAt} />))
         }
       </div>
