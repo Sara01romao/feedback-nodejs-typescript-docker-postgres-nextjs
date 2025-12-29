@@ -23,7 +23,6 @@ export function Filter({ listFilter }: FilterProps) {
     if (state.ok && state.data) {
       const { feedbacks } = state.data;
       listFilter(feedbacks);
-      console.log("teste", feedbacks)
     } else if (state.ok && state.data === null) {
 
       listFilter([]);
