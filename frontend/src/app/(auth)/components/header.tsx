@@ -1,18 +1,19 @@
 'use client'
-
 import { logout } from "@/src/actions/logout";
+import { useRouter } from "next/navigation";
 
 type Code = {
   code: string;
-
 }
 
 export function Header({ code }: Code) {
-  async function logoutHandle() {
-    console.log("teste")
-     await logout();
+  const router = useRouter();
 
+  async function logoutHandle() {
+    await logout();
+    router.push('/login')
   }
+  
   return (
     <header className="flex justify-between w-full items-center border-b-2 border-neutral-200 mb-4 flex-col-reverse sm:flex-row">
       <h3 className="text-center font-semibold text-neutral-700">Código da Empresa: <span className="text-[#643EE4] font-semibold">{code}</span> </h3>
