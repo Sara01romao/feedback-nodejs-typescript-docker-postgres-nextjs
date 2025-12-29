@@ -24,7 +24,7 @@ export function LoginForm() {
     <>
       <form action={action} className="max-w-[500px] w-full border border-[#D9D9D9] rounded-lg py-8 px-8 mx-auto flex flex-col gap-4  ">
         <h2 className="font-semibold text-2xl text-gray-900 text-center mb-4">Login</h2>
-        <Input name="code" type="text" title="Nome da Empresa" change={setCompanyCode} />
+        <Input name="code" type="text" title="Código da Empresa" change={setCompanyCode} />
         <Input name="password" type="password" title="Senha" change={setPassword} />
 
         {state?.error && (
